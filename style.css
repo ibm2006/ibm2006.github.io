@@ -52,6 +52,15 @@ h2 {
   margin-top: 0;
 }
 
+h3 {
+  margin: 24px 0 8px;
+}
+
+.lead {
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
 nav {
   display: flex;
   flex-wrap: wrap;
@@ -78,6 +87,39 @@ article {
   border: 1px solid var(--line);
   border-radius: 8px;
   background: var(--surface);
+}
+
+.post-list {
+  display: grid;
+  gap: 16px;
+  padding-left: 0;
+  list-style: none;
+}
+
+.post-list li {
+  display: grid;
+  gap: 4px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.post-list li:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.post-list a {
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.post-list span,
+.post-meta {
+  color: var(--muted);
+}
+
+.post-meta {
+  margin-top: -8px;
 }
 
 .profile-section {
