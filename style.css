@@ -76,6 +76,29 @@ nav a[aria-current="page"] {
   color: var(--text);
 }
 
+.language-switch {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.language-switch a {
+  padding: 4px 10px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.language-switch a[aria-current="page"] {
+  color: var(--surface);
+  background: var(--accent);
+  border-color: var(--accent);
+}
+
 main {
   display: grid;
   gap: 34px;
