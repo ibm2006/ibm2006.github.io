@@ -168,6 +168,62 @@ article {
   font-weight: 700;
 }
 
+.table-wrap {
+  overflow-x: auto;
+}
+
+.data-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  padding: 10px;
+  border: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.data-table th {
+  background: #eef3ef;
+}
+
+.quality-fuck {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+.quality-common,
+.quality-normal {
+  color: #409d00;
+  font-weight: 700;
+}
+
+.quality-rare {
+  color: #006dd7;
+  font-weight: 700;
+}
+
+.quality-epic {
+  color: #8a3db6;
+  font-weight: 700;
+}
+
+.quality-legendary {
+  color: #f89009;
+  font-weight: 700;
+}
+
+.quality-mythical {
+  display: inline-block;
+  padding: 0 4px;
+  color: #f3c000;
+  background: #000000;
+  font-weight: 700;
+}
+
 .profile-section {
   display: grid;
   grid-template-columns: 150px 1fr;
