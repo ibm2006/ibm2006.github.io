@@ -1,0 +1,215 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="A translated and reformatted article on the Combinatorial Nullstellensatz and its applications."
+    >
+    <title>Combinatorial Nullstellensatz | ibm2006</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>ibm2006</h1>
+      <nav aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="index.html">Blog</a>
+      </nav>
+      <div class="language-switch" aria-label="Language switcher">
+        <a href="combinatorial-nullstellensatz.html" aria-current="page">English</a>
+        <a href="../ko/blog/combinatorial-nullstellensatz.html" lang="ko">한국어</a>
+      </div>
+    </header>
+
+    <main>
+      <article aria-labelledby="post-title">
+        <h2 id="post-title">Combinatorial Nullstellensatz</h2>
+        <p class="post-meta">Translated and reformatted from the original notes</p>
+
+        <p class="source-note">
+          Reference:
+          <a href="https://web.math.princeton.edu/~nalon/PDFS/null2.pdf">Alon's paper</a>.
+          This post may be updated later.
+        </p>
+
+        <p>
+          Skipping a long introduction, I will directly explain what the
+          Combinatorial Nullstellensatz is.
+        </p>
+
+        <section aria-labelledby="theorem-heading">
+          <h3 id="theorem-heading">Combinatorial Nullstellensatz</h3>
+          <p class="callout">
+            <strong>Theorem (Combinatorial Nullstellensatz).</strong>
+            Let $F$ be a field, and let
+            $f\in F[x_1,x_2,\cdots , x_n]$ be a polynomial of degree
+            $t_1+\cdots+t_n$. Suppose that
+            $S_1,S_2,\cdots,S_n$ are nonempty subsets of $F$,
+            $|S_i|\ge t_i+1$, and
+            $f[x_1^{t_1}x_2^{t_2}\cdots x_n^{t_n}]\neq 0$.
+            Then there exist
+            $s_1\in S_1,s_2\in S_2,\cdots,s_n\in S_n$
+            such that $f(s_1,s_2,\cdots,s_n)\neq 0$.
+          </p>
+
+          <p>
+            In simple terms, the Combinatorial Nullstellensatz can be
+            interpreted as an extended form of a theorem we know at a basic
+            level: the fundamental theorem of algebra.
+          </p>
+
+          <p>
+            This post will not explain the proof of the theorem. The proof may
+            feel tedious and pedantic, and the purpose of this post is to
+            explain the applicability of the Combinatorial Nullstellensatz.
+          </p>
+        </section>
+
+        <section aria-labelledby="applications-heading">
+          <h3 id="applications-heading">Applications</h3>
+          <p>Let us immediately look at one impressive application.</p>
+
+          <div class="problem">
+            <p class="problem-title">Problem (Russia MO 2007/5)</p>
+            <p>
+              For even $n$, consider the cycle $C_n$ with $n$ vertices. At each
+              vertex $v$ of this graph, exactly two numbers among
+              $1,2,\cdots,m$ are written. Show that one can erase one of the
+              two numbers written at each vertex $v$ so that any two adjacent
+              vertices have different remaining numbers.
+            </p>
+          </div>
+
+          <p>
+            Of course, there may be several ways to solve this problem. One of
+            them is to apply the Combinatorial Nullstellensatz.
+          </p>
+
+          <p>Consider the following polynomial in $n$ variables:</p>
+          <p>$$f(X)=\prod_{e=uv\in E}(x_u-x_v).$$</p>
+
+          <p>
+            It is not hard to show that the coefficient of
+            $x_1x_2\cdots x_n$ in this polynomial is not $0$, and it is also
+            not hard to see that the highest degree of this polynomial is $n$.
+          </p>
+
+          <p>
+            If $S_i$ is the set of the two numbers written at the $i$-th
+            vertex, then $|S_i|\ge 2=1+t_i$. Therefore, by the Combinatorial
+            Nullstellensatz, we can choose $s_i\in S_i$ so that
+            $$f(s_1,\cdots,s_n)\neq 0.$$
+          </p>
+
+          <p>
+            This means that if we leave $s_1,\cdots,s_n$, then for every
+            $e=uv\in E$ we have $x_u-x_v\neq 0$, so the condition in the
+            problem is satisfied.
+          </p>
+
+          <p>
+            In fact, the above problem is equivalent to the $2$-choosability of
+            even cycles. From this point of view, we can see that the
+            Combinatorial Nullstellensatz is extremely useful for solving graph
+            coloring problems.
+          </p>
+
+          <p>Let us check one more example.</p>
+
+          <div class="problem">
+            <p class="problem-title">Problem (IMO 2007/6)</p>
+            <p>
+              Let $n$ be a positive integer. Consider the set of points in
+              three-dimensional space
+              $$S=\{(x,y,z)\mid x,y,z\in\{0,1,\cdots,n\},\ (x,y,z)\neq(0,0,0)\}.$$
+              What is the minimum number of planes needed to cover all points
+              of $S$ while none of the planes passes through $(0,0,0)$?
+            </p>
+          </div>
+
+          <p>
+            Recall that, in general, a plane can be written in the form
+            $ax+by+cz-d=0$. Suppose that $3n-1$ such planes cover the whole
+            set, and write the $i$-th plane as
+            $a_ix+b_iy+c_iz-d=0$.
+          </p>
+
+          <p>Consider the following polynomial:</p>
+          <p>$$P(x,y,z)=\prod_{i=1}^{3n-1}(a_ix+b_iy+c_iz-d).$$</p>
+
+          <p>
+            It is clear that the maximum degree of this polynomial is at most
+            $3n-1$. All points of $S$ must be zeros of this polynomial, while
+            $(0,0,0)$ must not be a zero.
+          </p>
+
+          <p>
+            By the grid vanishing lemma in the exercises, this is impossible.
+          </p>
+
+          <p>
+            It is clear that $3n$ planes can cover $S$ without covering
+            $(0,0,0)$.
+          </p>
+        </section>
+
+        <section aria-labelledby="exercises-heading">
+          <h3 id="exercises-heading">Exercises</h3>
+          <ol>
+            <li>
+              <strong>Grid vanishing lemma.</strong>
+              Let $A_1,\cdots,A_k$ be finite subsets of some field, and let
+              $P(x_1,\cdots,x_k)$ be a polynomial. If
+              $\deg P<\sum_{i=1}^k(|A_i|-1)$, then it is impossible for $P$ to
+              be nonzero at exactly one point of
+              $A_1\times\cdots\times A_k$.
+            </li>
+            <li>
+              If $A,B$ are subsets of $\mathbb Z_p$, then
+              $$|A+B|\ge \min(p,|A|+|B|-1).$$
+            </li>
+            <li>
+              <strong>Erdos-Heilbronn Conjecture.</strong>
+              Let $A$ be a subset of $\mathbb Z_p$. Then
+              $$|\{x+y\mid x,y\in A,x\neq y\}|\ge \min(p,2|A|-3).$$
+            </li>
+            <li>
+              <strong>China 2026 TST.</strong>
+              Let $n>2m>2$ be positive integers. There are $n$ people, and
+              some pairs among them are friends. We want to form $m$ committees
+              from these people so that each person belongs to exactly one
+              committee and all people inside each committee are pairwise
+              friends. First, from the $n$ people, choose two representatives
+              for each committee. After doing so, suppose there is exactly one
+              way to assign the remaining $n-2m$ people appropriately to the
+              committees. What is the maximum possible number of friendship
+              pairs for which this situation can occur?
+            </li>
+            <li>
+              <strong>Alon?</strong>
+              For any prime $p$, every simple graph whose average degree is
+              greater than $2p-2$ and whose maximum degree is at most $2p-1$
+              has a $p$-regular subgraph.
+            </li>
+          </ol>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 ibm2006</p>
+    </footer>
+  </body>
+</html>

@@ -145,6 +145,29 @@ article {
   margin-top: -8px;
 }
 
+.source-note,
+.callout {
+  padding: 16px;
+  border-left: 4px solid var(--accent);
+  background: #f1f7f4;
+}
+
+.source-note {
+  color: var(--muted);
+}
+
+.problem {
+  padding: 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fbfdfb;
+}
+
+.problem-title {
+  margin: 0 0 8px;
+  font-weight: 700;
+}
+
 .profile-section {
   display: grid;
   grid-template-columns: 150px 1fr;
