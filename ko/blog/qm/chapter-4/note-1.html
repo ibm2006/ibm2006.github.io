@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="3차원에서의 슈뢰딩거 방정식에 대한 양자역학 노트입니다."
+    >
+    <title>Note 1 | Chapter 4 | 양자역학 | ibm2006</title>
+    <link rel="stylesheet" href="../../../../style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>ibm2006</h1>
+      <nav aria-label="주요 내비게이션">
+        <a href="../../../index.html">홈</a>
+        <a href="../../../research.html">연구</a>
+        <a href="../../index.html">블로그</a>
+      </nav>
+      <div class="language-switch" aria-label="언어 선택">
+        <a href="../../../../blog/qm/chapter-4/note-1.html" lang="en">English</a>
+        <a href="note-1.html" aria-current="page">한국어</a>
+      </div>
+    </header>
+
+    <main>
+      <article aria-labelledby="post-title">
+        <h2 id="post-title">4.1. The Schrodinger Equation</h2>
+        <p class="post-meta"><a href="index.html">Chapter 4</a> / Note 1</p>
+
+        <p>3차원에서의 해밀토니안 연산자는 다음과 같이 나타난다:</p>
+
+        <p>$$\hat H=\frac{1}{2}mv^2+V=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)+V$$</p>
+
+        <p>
+          이때, $p_x=-i\hbar \frac{\partial}{\partial x}$이고, y와 z에
+          대해서도 유사하게 표현됨이 자명하므로, 슈뢰딩거 방정식은
+          간단하게 다음과 같이 표기된다:
+        </p>
+
+        <p>$$i\hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2m}\nabla ^2 \Psi+V\Psi$$</p>
+
+        <p>
+          물론 시간 비의존 슈뢰딩거 방정식은
+          $$-\frac{\hbar^2}{2m}\nabla^2 \psi+V\psi=E\psi$$
+          와 같이 나타날 것이고, 이를 만족하는 정류 상태들 $\psi_n$에
+          대해서 슈뢰딩거 방정식의 일반해는
+          $$\Psi_n(r,t)=\psi_n(r)e^{-iE_nt/\hbar}$$
+          들의 선형 결합을 통해 나타내어질 것이다.
+        </p>
+
+        <h3>4.1.1. Spherical Coordinates</h3>
+
+        <p>
+          본 문단에서는 퍼텐셜 $V$가 spherical symmetry를 가질 때, 구면
+          좌표계에서의 슈뢰딩거 방정식에 대해 다룬다.
+        </p>
+
+        <p>
+          구면좌표계의 라플라시안은
+          $$\nabla^2=\frac{1}{r^2}\frac{\partial}{\partial r}(r^2\frac{\partial}{\partial r})+\frac{1}{r^2\sin \theta}\frac{\partial}{\partial \theta}(\sin \theta\frac{\partial}{\partial \theta})+\frac{1}{r^2\sin^2\theta}(\frac{\partial^2}{\partial \phi^2})$$
+          과 같이 나타남을 상기하라.
+        </p>
+
+        <p>
+          이를 대입하여 슈뢰딩거 방정식을 정리하면 된다. 일단
+          $\psi(r,\theta,\phi)=R(r)Y(\theta,\phi)$와 같은 변수분리를
+          생각해보자. 이를 대입하면, 결국 전체 식은
+        </p>
+
+        <p>$$(\frac{1}{R}\frac{d}{dr}(r^2\frac{dR}{dr})-\frac{2mr^2}{\hbar^2}(V(r)-E))+\frac{1}{Y}(\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial\theta})+\frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial \phi^2})=0$$</p>
+
+        <p>
+          과 같이 정리된다. 당연히 첫째 항은 $r$에 대한 식이고 둘째 항은
+          $\theta,\phi$에 관한 식이므로 이 둘은 상수여야 한다. 모종의 이유로
+          인해,
+          $$\frac{1}{R}\frac{d}{dr}(r^2\frac{dR}{dr})-\frac{2mr^2}{\hbar^2}(V(r)-E)=l(l+1)$$
+          과 같이 두는 것이 간편해진다. 그렇다면
+          $$\frac{1}{Y}(\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial\theta})+\frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial \phi^2})=-l(l+1)$$
+          이 될 것이다.
+        </p>
+
+        <h3>4.1.2. The Angular Equation</h3>
+
+        <p>
+          먼저, 두 각도 $\theta,\phi$에 관한 방정식을 분석해보자. 이는 곧
+          다음과 같이 기술될 수 있다:
+        </p>
+
+        <p>$$\sin\theta\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial \theta})+\frac{\partial^2 Y}{\partial \phi^2}=-l(l+1)\sin^2 \theta Y$$</p>
+
+        <p>
+          해당 식은 또다시 $Y$에 대한 변수분리법을 적용하여 분석해줄 수
+          있다.
+          $$Y(\theta,\phi)=\Theta(\theta)\Phi(\phi)$$
+          와 같이 두고나서 식을 정리해보면,
+          $$(\frac{1}{\Phi}(\sin\theta\frac{d}{d\theta}(\sin\theta \frac{d\Theta}{d\theta}))+l(l+1)\sin^2\theta)+\frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2}=0$$
+          을 얻는다. 이제 다시 각 항은 각 변수에 의존하므로, 상수여야
+          한다. 이번에는 그 상수값을 $m^2$과 같이 두자.
+        </p>
+
+        <p>$$\frac{1}{\Phi}(\sin\theta\frac{d}{d\theta}(\sin\theta \frac{d\Theta}{d\theta}))+l(l+1)\sin^2\theta=m^2, \frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2}=-m^2$$</p>
+
+        <p>
+          두 번째 방정식은 자명하고, 해결하면 $\Phi(\phi)=e^{im\phi}$를
+          얻는다. $\phi$는 각도여야 하므로 $\Phi(\phi)=\Phi(\phi+2\pi)$이고,
+          이것이 만족되기 위해서는 $m$이 정수여야만 한다.
+        </p>
+
+        <p>
+          이제 첫 번째 방정식에 대해 분석하자. 사실, 이러한 방정식을
+          해결하는 것은 무척 까다로우며, 이미 해당 형태의 방정식에 관한
+          사실이 알려져 있다. 해당 방정식의 해는
+          $$\Theta(\theta)=AP_l^m(\cos\theta)$$
+          이고, 이때 $P_l^m$은 associated Legendre function이며, 그 공식은
+          $$P_l^m(x)\equiv (-1)^m(1-x^2)^{m/2}(\frac{d}{dx})^m P_l(x)$$
+          와 같이 나타난다. 이때, $P_l$은 Legendre polynomial아며, 그 공식은
+          $$P_l(x)\equiv \frac{1}{2^l l!}(\frac{d}{dx})^l (x^2-1)^l$$
+          과 같이 나타난다.
+        </p>
+
+        <p>
+          일반적으로 이러한 공식이나 다항식의 표를 암기하는 것은 꽤나
+          비효율적인 행동이기 때문에, 중요한 몇 가지 성질만을 알아두는 것이
+          좋다.
+        </p>
+
+        <p>
+          아주 까다로운 계산을 거치고 나면, $Y$ 함수의 normalized된 형태를
+          얻어낼 수 있으며, 이는 <strong>구면 조화 함수</strong>라고 불린다.
+        </p>
+
+        <p>$$Y_l^m(\theta,\phi)=\sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_l^m(\cos\theta)$$</p>
+
+        <h3>4.1.3. The Radial Equation</h3>
+
+        <p>이제 해결해야 하는 것은 남아있는 다음의 미분방정식이다:</p>
+
+        <p>$$\frac{d}{dr}(r^2\frac{dR}{dr})-\frac{2mr^2}{\hbar^2}(V(r)-E)R=l(l+1)R$$</p>
+
+        <p>
+          $u(r)\equiv rR(r)$과 같이 정의하자. 그렇다면 충분한 계산을 통해,
+        </p>
+
+        <p>$$-\frac{\hbar^2}{2m}\frac{d^2u}{dr^2}+(V+\frac{\hbar^2}{2m}\frac{l(l+1)}{r^2})u=Eu$$</p>
+
+        <p>
+          와 같은 식으로 환원 가능하다. 이는,
+          $V_{eff}=V+\frac{\hbar^2}{2m}\frac{l(l+1)}{r^2}$에 대한 1차원
+          상에서의 슈뢰딩거 방정식으로 해석가능하다. 이 추가적인 항
+          $\frac{\hbar^2}{2m}(l(l+1)/r^2)$은 고전역학에서의 "원심력"에
+          대응되는 작용을 한다.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 ibm2006</p>
+    </footer>
+  </body>
+</html>

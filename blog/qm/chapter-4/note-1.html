@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Quantum mechanics note on the Schrodinger equation in three dimensions."
+    >
+    <title>Note 1 | Chapter 4 | Quantum Mechanics | ibm2006</title>
+    <link rel="stylesheet" href="../../../style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>ibm2006</h1>
+      <nav aria-label="Primary navigation">
+        <a href="../../../index.html">Home</a>
+        <a href="../../../research.html">Research</a>
+        <a href="../../index.html">Blog</a>
+      </nav>
+      <div class="language-switch" aria-label="Language switcher">
+        <a href="note-1.html" aria-current="page">English</a>
+        <a href="../../../ko/blog/qm/chapter-4/note-1.html" lang="ko">한국어</a>
+      </div>
+    </header>
+
+    <main>
+      <article aria-labelledby="post-title">
+        <h2 id="post-title">4.1. The Schrodinger Equation</h2>
+        <p class="post-meta"><a href="index.html">Chapter 4</a> / Note 1</p>
+
+        <p>The Hamiltonian operator in three dimensions is written as follows:</p>
+
+        <p>$$\hat H=\frac{1}{2}mv^2+V=\frac{1}{2m}(p_x^2+p_y^2+p_z^2)+V$$</p>
+
+        <p>
+          Here, $p_x=-i\hbar \frac{\partial}{\partial x}$, and it is clear that
+          the same kind of expression holds for $y$ and $z$. Therefore, the
+          Schrodinger equation is simply written as
+        </p>
+
+        <p>$$i\hbar \frac{\partial \Psi}{\partial t}=-\frac{\hbar^2}{2m}\nabla ^2 \Psi+V\Psi$$</p>
+
+        <p>
+          Of course, the time-independent Schrodinger equation is
+          $$-\frac{\hbar^2}{2m}\nabla^2 \psi+V\psi=E\psi$$
+          and for stationary states $\psi_n$ satisfying this equation, the
+          general solution of the Schrodinger equation is expressed as a linear
+          combination of
+          $$\Psi_n(r,t)=\psi_n(r)e^{-iE_nt/\hbar}.$$
+        </p>
+
+        <h3>4.1.1. Spherical Coordinates</h3>
+
+        <p>
+          In this section, we discuss the Schrodinger equation in spherical
+          coordinates when the potential $V$ has spherical symmetry.
+        </p>
+
+        <p>Recall that the Laplacian in spherical coordinates is</p>
+
+        <p>$$\nabla^2=\frac{1}{r^2}\frac{\partial}{\partial r}(r^2\frac{\partial}{\partial r})+\frac{1}{r^2\sin \theta}\frac{\partial}{\partial \theta}(\sin \theta\frac{\partial}{\partial \theta})+\frac{1}{r^2\sin^2\theta}(\frac{\partial^2}{\partial \phi^2}).$$</p>
+
+        <p>
+          Substitute this into the Schrodinger equation and simplify. First,
+          consider separation of variables of the form
+          $\psi(r,\theta,\phi)=R(r)Y(\theta,\phi)$. Substituting this, the whole
+          expression eventually becomes
+        </p>
+
+        <p>$$(\frac{1}{R}\frac{d}{dr}(r^2\frac{dR}{dr})-\frac{2mr^2}{\hbar^2}(V(r)-E))+\frac{1}{Y}(\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial\theta})+\frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial \phi^2})=0.$$</p>
+
+        <p>
+          Clearly, the first term is an expression in $r$, and the second term
+          is an expression in $\theta,\phi$, so both must be constants. For some
+          reason, it becomes convenient to set
+          $$\frac{1}{R}\frac{d}{dr}(r^2\frac{dR}{dr})-\frac{2mr^2}{\hbar^2}(V(r)-E)=l(l+1).$$
+          Then
+          $$\frac{1}{Y}(\frac{1}{\sin\theta}\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial\theta})+\frac{1}{\sin^2\theta}\frac{\partial^2 Y}{\partial \phi^2})=-l(l+1).$$
+        </p>
+
+        <h3>4.1.2. The Angular Equation</h3>
+
+        <p>
+          First, analyze the equation involving the two angles $\theta,\phi$.
+          It can be described as follows:
+        </p>
+
+        <p>$$\sin\theta\frac{\partial}{\partial \theta}(\sin\theta\frac{\partial Y}{\partial \theta})+\frac{\partial^2 Y}{\partial \phi^2}=-l(l+1)\sin^2 \theta Y.$$</p>
+
+        <p>
+          This equation can again be analyzed by applying separation of
+          variables to $Y$. Put
+          $$Y(\theta,\phi)=\Theta(\theta)\Phi(\phi).$$
+          After simplifying the expression, we obtain
+          $$(\frac{1}{\Phi}(\sin\theta\frac{d}{d\theta}(\sin\theta \frac{d\Theta}{d\theta}))+l(l+1)\sin^2\theta)+\frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2}=0.$$
+          Again, each term depends on a different variable, so each must be a
+          constant. This time, set that constant to be $m^2$.
+        </p>
+
+        <p>$$\frac{1}{\Phi}(\sin\theta\frac{d}{d\theta}(\sin\theta \frac{d\Theta}{d\theta}))+l(l+1)\sin^2\theta=m^2,\quad \frac{1}{\Phi}\frac{d^2\Phi}{d\phi^2}=-m^2.$$</p>
+
+        <p>
+          The second equation is obvious, and solving it gives
+          $\Phi(\phi)=e^{im\phi}$. Since $\phi$ is an angle, we need
+          $\Phi(\phi)=\Phi(\phi+2\pi)$, and for this to hold, $m$ must be an
+          integer.
+        </p>
+
+        <p>
+          Now analyze the first equation. In fact, solving this kind of equation
+          is quite difficult, and facts about this form of equation are already
+          known. The solution is
+          $$\Theta(\theta)=AP_l^m(\cos\theta),$$
+          where $P_l^m$ is the associated Legendre function, defined by
+          $$P_l^m(x)\equiv (-1)^m(1-x^2)^{m/2}(\frac{d}{dx})^m P_l(x).$$
+          Here, $P_l$ is the Legendre polynomial, defined by
+          $$P_l(x)\equiv \frac{1}{2^l l!}(\frac{d}{dx})^l (x^2-1)^l.$$
+        </p>
+
+        <p>
+          In general, memorizing these formulas or tables of polynomials is
+          fairly inefficient, so it is better to know only a few important
+          properties.
+        </p>
+
+        <p>
+          After very difficult calculations, one can obtain the normalized form
+          of the $Y$ functions, called <strong>spherical harmonics</strong>.
+        </p>
+
+        <p>$$Y_l^m(\theta,\phi)=\sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}e^{im\phi}P_l^m(\cos\theta).$$</p>
+
+        <h3>4.1.3. The Radial Equation</h3>
+
+        <p>The remaining differential equation to solve is</p>
+
+        <p>$$\frac{d}{dr}(r^2\frac{dR}{dr})-\frac{2mr^2}{\hbar^2}(V(r)-E)R=l(l+1)R.$$</p>
+
+        <p>
+          Define $u(r)\equiv rR(r)$. Then, after sufficient calculation, this
+          can be reduced to
+        </p>
+
+        <p>$$-\frac{\hbar^2}{2m}\frac{d^2u}{dr^2}+(V+\frac{\hbar^2}{2m}\frac{l(l+1)}{r^2})u=Eu.$$</p>
+
+        <p>
+          This can be interpreted as the one-dimensional Schrodinger equation
+          for
+          $V_{eff}=V+\frac{\hbar^2}{2m}\frac{l(l+1)}{r^2}$. The additional term
+          $\frac{\hbar^2}{2m}(l(l+1)/r^2)$ plays a role corresponding to
+          "centrifugal force" in classical mechanics.
+        </p>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 ibm2006</p>
+    </footer>
+  </body>
+</html>
