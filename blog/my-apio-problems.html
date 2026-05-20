@@ -1,0 +1,285 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="Thoughts and behind-the-scenes notes on APIO problems authored by ibm2006."
+    >
+    <title>My APIO Problems | ibm2006</title>
+    <link rel="stylesheet" href="../style.css">
+    <script>
+      window.MathJax = {
+        tex: {
+          inlineMath: [["$", "$"], ["\\(", "\\)"]],
+          displayMath: [["$$", "$$"], ["\\[", "\\]"]]
+        }
+      };
+    </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <h1>ibm2006</h1>
+      <nav aria-label="Primary navigation">
+        <a href="../index.html">Home</a>
+        <a href="../research.html">Research</a>
+        <a href="index.html">Blog</a>
+      </nav>
+      <div class="language-switch" aria-label="Language switcher">
+        <a href="my-apio-problems.html" aria-current="page">English</a>
+        <a href="../ko/blog/my-apio-problems.html" lang="ko">한국어</a>
+      </div>
+    </header>
+
+    <main>
+      <article aria-labelledby="post-title">
+        <h2 id="post-title">My APIO Problems</h2>
+        <p class="post-meta">Based on the attached PDF note</p>
+
+        <p>
+          APIO 2026 was held recently, and I found out that a problem I submitted
+          through the Call for Tasks was used. This means that my third APIO
+          problem, and my third consecutive APIO problem from 2024 through 2026,
+          has now been made public. To celebrate three consecutive APIO tasks, I
+          decided to write some brief thoughts and behind-the-scenes notes about
+          the three problems I have authored so far.
+        </p>
+
+        <section aria-labelledby="apio-2024-heading">
+          <h3 id="apio-2024-heading">APIO 2024: Task C, Magic Show</h3>
+          <p><a href="https://qoj.ac/contest/1684/problem/8726">https://qoj.ac/contest/1684/problem/8726</a></p>
+
+          <p>
+            To be honest, this problem may be the biggest mistake in my history
+            as a problemsetter.
+          </p>
+          <p>
+            The contest this problem was originally meant for was "Anime Cup 2."
+            This was not the Anime Cup 2 hosted by hyperbolic, but rather a
+            contest that had been semi-prepared in the same server after Anime
+            Cup 1, hosted long ago by sait2000, and then abandoned.
+          </p>
+          <p>
+            The solution I first had in mind was extremely complicated, but it
+            also contained many elegant and impressive ideas. When APIO 2024 Call
+            for Tasks was running, I was thinking about what problem to submit.
+            Since Anime Cup 2 showed no sign of progress, I thought it would be
+            fine to submit this problem. I submitted it with the mindset that I
+            had nothing to lose: if there were a much simpler unintended solution
+            than the official one, the problem would be rejected, and learning
+            about that existence would still be a worthwhile result.
+          </p>
+          <p>
+            Surprisingly, however, the APIO 2024 Committee selected this problem.
+            That made me believe that my complicated solution was actually a very
+            efficient one, because if a sufficiently easy and simple solution
+            existed, I thought the committee would have found it.
+          </p>
+          <p>
+            I provided the basic setup for the problem as instructed by the
+            committee. For two weeks until the contest day, there was no contact
+            at all, so I even considered the possibility that I had submitted the
+            problem to some scam organization pretending to be the APIO
+            committee. Looking back, there may not have been much reason for the
+            author and committee to communicate frequently, but at the time this
+            was enough to create that suspicion.
+          </p>
+          <p>
+            I remember that the contest day was the day of my high school alumni
+            gathering. While I was there, I contacted qwerasdfzxcl, who had taken
+            the contest, to check whether my problem had actually appeared.
+            qwerasdfzxcl said they had solved every problem except mine, and at
+            that moment I had no choice but to believe that my solution was
+            essentially optimal.
+          </p>
+          <p>
+            After the contest, however, I saw in the Codeforces discussion thread
+            that there was an extremely simple and efficient solution using CRT,
+            and I was deeply shocked. This is only my inference, but there was
+            also a story that China had 56 perfect scorers because my problem,
+            which had been expected to be the hardest, was actually very easy.
+          </p>
+          <p>
+            For this reason, setting this problem, or failing to find the simple
+            CRT solution, became the biggest embarrassing episode in my
+            problemsetting history. Even now, my friends, including
+            qwerasdfzxcl, continue to make various memes based on this event. It
+            was certainly my mistake, but I do still think that if there was a
+            real issue with the problem, it would have been nice if the committee
+            had found it.
+          </p>
+          <p>
+            What I learned from this experience is that making a two-step problem
+            about labeled trees is not a particularly good idea.
+          </p>
+        </section>
+
+        <section aria-labelledby="apio-2025-heading">
+          <h3 id="apio-2025-heading">APIO 2025: Task C, Rotating Lines</h3>
+          <p><a href="https://qoj.ac/contest/2031/problem/9207">https://qoj.ac/contest/2031/problem/9207</a></p>
+
+          <p>
+            I submitted this problem without really expecting it to be selected.
+            The basic idea came from the following problem shown to me by a
+            friend:
+          </p>
+          <p class="callout">
+            Given $2n$ lines passing through the origin, consider the total sum
+            of the angles between every pair of lines. What is the maximum
+            possible value of this sum?
+          </p>
+          <p>
+            After thinking about it for a while, I observed that there was a
+            simple solution using graph modeling. Treat each line as a vertex,
+            and connect two vertices exactly when the angle between the two
+            lines is $0$ or $\pi/2$. The graph constructed in this way has some
+            number of components.
+          </p>
+          <p>
+            Now consider rotating all lines in a particular component by
+            $d\theta$. The total sum of angles changes as a linear function of
+            $d\theta$. Therefore, by rotating the component in one direction, the
+            total sum of angles increases until an edge is first added between
+            this component and another component. Repeating this eventually
+            reaches a point where the whole graph becomes connected.
+          </p>
+          <p>
+            When all lines are parallel or perpendicular, it is clear that it is
+            optimal to split the lines into two groups of $n$ lines each and add
+            the angles.
+          </p>
+          <p>
+            Of course, easier solutions and various other solutions exist, but I
+            thought the advantage of this solution was that for any given
+            configuration of lines, a certain operation can increment the total
+            angle and reach the maximum. I wrote and submitted the problem based
+            on this point.
+          </p>
+          <p>
+            I did not think it was a particularly beautiful problem and did not
+            expect much, so I was somewhat surprised to receive the email saying
+            it had been selected.
+          </p>
+          <p>
+            This problem also had some issues. The original version I submitted
+            required difficult optimization with efficient data structures for
+            large $n$. This time, I was able to communicate with a committee
+            member and adjust details of the problem. One concern raised was that
+            the implementation was somewhat complicated compared with the
+            difficulty of the idea, so I replied that making $n$ smaller would
+            also be fine.
+          </p>
+          <p>
+            However, it seems the committee decided not to reduce $n$, and the
+            actual contest used the original large-$n$ version. On the contest
+            day, I was at an afterparty after participating in some programming
+            contest, probably SCPC hosted by SCSC, and I asked mingyu331 whether
+            my problem had appeared. I remember mingyu331 describing my problem
+            as a strange heuristic problem.
+          </p>
+          <p>
+            Looking at the discussion thread, I saw that there was a short and
+            elegant solution different from mine:
+            <a href="https://codeforces.com/blog/entry/143015">https://codeforces.com/blog/entry/143015</a>.
+            My solution is probably easier to think of but very difficult to
+            implement, so it seems many people solved it using that method. The
+            linked solution is concise in implementation but not easy to come up
+            with, and it is very elegant, so I thought this issue was much less
+            serious than the previous year's.
+          </p>
+          <p>
+            If $n$ had been a little smaller, I think it could have become a
+            good problem with several difficult solutions. Still, I was relieved
+            that there was no serious problem like the previous year.
+          </p>
+        </section>
+
+        <section aria-labelledby="apio-2026-heading">
+          <h3 id="apio-2026-heading">APIO 2026: Task B, Navigation</h3>
+          <p><a href="https://qoj.ac/contest/3763/problem/17644">https://qoj.ac/contest/3763/problem/17644</a></p>
+
+          <p>
+            Through two APIO problemsetting experiences, I had come to enjoy
+            submitting problems to international Call for Tasks processes. To get
+            the title of having authored APIO problems for three consecutive
+            years, I made various problems, and this was one decent problem that
+            came out of that process.
+          </p>
+          <p>
+            The process of making the problem was not very difficult. Recently, I
+            had been trying to create problems by combining random objects, and
+            the elements I decided to combine were "orientations" and
+            "coloring." After realizing that there is not much one can do on a
+            general tree, I added conditions on the degrees of the tree and tried
+            several compromises that would make the problem solve beautifully.
+          </p>
+          <p>
+            The strongest compromise I found was the version using at most four
+            colors on trees whose degrees are either $1$ or at least $5$. This
+            corresponds to subtasks 3 and 4 of the actual problem. Unfortunately,
+            this was a solution I found while lying down to sleep, and after
+            waking up I somehow mistakenly thought that five colors was the
+            limit. I then wrote the problem and solution for submission under
+            that misconception. While writing the solution, I felt it was a bit
+            easier than I had originally felt, and this was probably the reason.
+          </p>
+          <p>
+            In any case, I submitted this problem along with several others to
+            APIO 2026 Call for Tasks, and in the end only this problem was
+            selected.
+          </p>
+          <p>
+            The PDF note included an image of Shinonome Ena simply because there
+            was no other suitable image to include. Shinonome Ena is cute.
+          </p>
+          <p>
+            After asking dadas08 and checking the actual problem, I saw that the
+            committee had independently reduced the maximum number of colors to
+            four under the degree-at-least-five constraint, and had also added a
+            subtask 5 where more colors are available under slightly smaller
+            degree conditions. I have not thought about that subtask much, but it
+            probably is not too hard; I think I will solve it later.
+          </p>
+          <p>
+            I expected this problem to be a medium-difficulty problem that was
+            not very hard, so I was shocked to see that nobody solved it. Perhaps
+            it was because many Chinese contestants did not participate in the
+            main contest. I cannot imagine a world where Chinese LGMs fail to get
+            full score on this problem.
+          </p>
+          <p>
+            This problem also had a solution different from what I had in mind,
+            and I think each solution has its pros and cons. I simply split cases
+            over all possible partitions of $6$ and applied a solution that used
+            as little cleverness as possible.
+          </p>
+          <p>
+            By setting this problem, I was able to obtain the title of having
+            authored APIO problems for three consecutive years. Since I also
+            think this problem has fairly satisfying quality, I feel satisfied
+            with this problemsetting experience.
+          </p>
+        </section>
+
+        <section aria-labelledby="closing-heading">
+          <h3 id="closing-heading">Closing</h3>
+          <p>
+            In the past, I solved many problems for various reasons, but recently
+            I have not been solving that many. Partly this is because I have
+            become busier, and partly because there is not much left for me to
+            gain by improving my skills in that direction. These days I tend to
+            solve only problems that look interesting, and spend more thought on
+            making problems. I think I will continue working on problemsetting in
+            order to make more interesting and impressive problems.
+          </p>
+        </section>
+      </article>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 ibm2006</p>
+    </footer>
+  </body>
+</html>
