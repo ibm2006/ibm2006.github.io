@@ -224,6 +224,24 @@ article {
   font-weight: 700;
 }
 
+.article-figure {
+  margin: 24px 0;
+}
+
+.article-figure img {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.article-figure figcaption {
+  margin-top: 8px;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
 .profile-section {
   display: grid;
   grid-template-columns: 150px 1fr;
